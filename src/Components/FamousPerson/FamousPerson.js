@@ -19,6 +19,7 @@ class FamousPerson extends Component {
         return (
             <div>
                 <input type="text" placeholder="name" onChange={ this.handleChange('name') } />
+                <input type="text" placeholder="role" onChange={this.handleChange('role')} />
                 <p>Hello world! {this.state.person.name + ' ' + this.state.person.role}</p>
             </div>
         );
