@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
-import '../FamousPerson/FamousPerson';
 import './App.css';
+import Header from '../Header/Header';
 import FamousPerson from '../FamousPerson/FamousPerson';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>React--Famous People!</h1>
+        <Header />
         <FamousPerson />
       </div>
     );
