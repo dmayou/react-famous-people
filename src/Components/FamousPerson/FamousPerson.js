@@ -4,7 +4,11 @@ class FamousPerson extends Component {
     state = { person: {
                 name : '',
                 role : ''
-            }
+            },
+            people: [
+                {name:'firstPerson', role:'firstRole'},
+                {name:'secondPerson', role:'secondPerson'}
+            ]
     }
     handleChange = (propertyName) => {
         return ( (event) => {
@@ -16,15 +20,19 @@ class FamousPerson extends Component {
         });
     }
     handleClick = (event) => {
-        console.log('the values of state are:', this.state)
+        console.log('the values of state are:', this.state);
+        this.setState({ people: [...this.state.people, this.state.person]});
     }
     render() {
+        let personList = this.state.people.map((person, i) => 
+            <li key={i}>{person.name} is famous for {person.role}</li>
+        );
         return (
             <div>
                 <input type="text" placeholder="name" onChange={ this.handleChange('name') } />
                 <input type="text" placeholder="role" onChange={this.handleChange('role')} />
                 <button onClick={this.handleClick}>Log State to Console</button>
-                <p>{this.state.person.name} is famous for {this.state.person.role}</p>
+                {personList}
             </div>
         );
     }
