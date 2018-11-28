@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FamousPersonList from '../FamousPersonList/FamousPersonList';
 
 class FamousPerson extends Component {
     // state = { person: {
@@ -24,15 +25,16 @@ class FamousPerson extends Component {
     //     this.setState({ people: [...this.props.people, this.props.person]});
     // }
     render() {
-        let personList = this.props.people.map((person, i) => 
-            <li key={i}>{person.name} is famous for {person.role}</li>
-        );
+        // let personList = this.props.people.map((person, i) => 
+        //     <li key={i}>{person.name} is famous for {person.role}</li>
+        // );
         return (
             <div>
                 <input type="text" value={this.props.person.name} placeholder="name" onChange={ this.props.handleChange('name') } />
                 <input type="text" value={this.props.person.role} placeholder="role" onChange={ this.props.handleChange('role')} />
                 <button onClick={this.props.handleClick}>Log State to Console</button>
-                {personList}
+                {/* {personList} */}
+                <FamousPersonList people={this.props.people} />
             </div>
         );
     }
